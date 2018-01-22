@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        
+        <title>ly-switch</title>
+
+        <link href="plugins/bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="src/ly-switch.css">
+		<style>
+			.demo-ol li, .plugin-test-ol li{
+				margin:10px 0;
+			}
+		</style>
+		
+
+    </head>
+    <body>
+    	<div class="container">
+    		<h1>ly-switch</h1>
+			
+			<div>
+				<h3>静态样式</h3>
+
+				<ol class="demo-ol">
+					<li>
+						<div role="switch" class="ly-switch-default">
+							<input type="checkbox" name="" class="ly-switch__input">
+							<span class="ly-switch__text">无效</span>
+							<span class="ly-switch__icon"></span>
+						</div>
+						<div role="switch" class="ly-switch-default is-checked">
+							<input type="checkbox" name="" class="ly-switch__input">
+							<span class="ly-switch__text">有效</span>
+							<span class="ly-switch__icon"></span>
+						</div>
+						<div role="switch" class="ly-switch-default is-disabled">
+							<input type="checkbox" name="" class="ly-switch__input">
+							<span class="ly-switch__text">无效</span>
+							<span class="ly-switch__icon"></span>
+						</div>
+						<div role="switch" class="ly-switch-default is-checked is-disabled">
+							<input type="checkbox" name="" class="ly-switch__input">
+							<span class="ly-switch__text">有效</span>
+							<span class="ly-switch__icon"></span>
+						</div>
+					</li>
+					<li>
+						<div role="switch" class="ly-switch-icontext">
+							<input type="checkbox" name="" class="ly-switch__input">
+							<span class="ly-switch__text"></span>
+							<span class="ly-switch__icon">否</span>
+						</div>
+						<div role="switch" class="ly-switch-icontext is-checked">
+							<input type="checkbox" name="" class="ly-switch__input">
+							<span class="ly-switch__text"></span>
+							<span class="ly-switch__icon">是</span>
+						</div>
+						<div role="switch" class="ly-switch-icontext is-disabled">
+							<input type="checkbox" name="" class="ly-switch__input">
+							<span class="ly-switch__text"></span>
+							<span class="ly-switch__icon">否</span>
+						</div>
+						<div role="switch" class="ly-switch-icontext is-checked is-disabled">
+							<input type="checkbox" name="" class="ly-switch__input">
+							<span class="ly-switch__text"></span>
+							<span class="ly-switch__icon">是</span>
+						</div>
+					</li>
+				</ol>
+
+			</div>
+
+			<div>
+				<h3>动态控件</h3>
+
+				<ol class="plugin-test-ol">
+					<li class="li-1">
+						<input type="checkbox" name="">
+						<input type="checkbox" name="" data-checked="true">
+						<input type="checkbox" name="" data-disabled="true">
+						<input type="checkbox" name="" data-checked="true" data-disabled="true">
+					</li>
+					<li class="li-2">
+						<input type="checkbox" name="">
+						<input type="checkbox" name="" data-checked="true">
+						<input type="checkbox" name="" data-disabled="true">
+						<input type="checkbox" name="" data-checked="true" data-disabled="true">
+					</li>
+					<li class="li-3">
+						<input type="checkbox" name="">
+						<input type="checkbox" name="" data-checked="true">
+						<input type="checkbox" name="" data-disabled="true">
+						<input type="checkbox" name="" data-checked="true" data-disabled="true">
+					</li>
+					<li class="li-4">
+						<input type="checkbox" name="">
+						<input type="checkbox" name="" data-checked="true">
+						<input type="checkbox" name="" data-disabled="true">
+						<input type="checkbox" name="" data-checked="true" data-disabled="true">
+					</li>
+				</ol>
+
+			</div>
+
+			<div>
+				<h3>使用方法</h3>
+
+				<ol class="demo-ol">
+					<li>
+						初始化：$('.plugin-test-ol input').lySwitch();
+					</li>
+					<li>
+						初始化：$('.plugin-test-ol input').lySwitch({  });
+						<p>可选：checked、disabled、trueText、falseText、trueValue、falseValue</p>
+					</li>
+					<li>
+						方法：$('.plugin-test-ol input').lySwitch('toggle');
+						<p>
+							可选：toggle、check、uncheck、disable、enable
+						</p>
+					</li>
+					<li>
+						事件：$('.plugin-test-ol input').on('check', function(e){});
+						<p>
+							可选：check、checked
+						</p>
+					</li>
+				</ol>
+			</div>
+
+    	</div>
+        
+
+
+
+
+
+
+
+
+
+        <script src="plugins/jquery-1.9.1/jquery.js"></script>
+        <script src="plugins/bootstrap-3.3.7/js/bootstrap.js"></script>
+
+		<script src="src/ly-switch.js"></script>
+		<script>
+			
+			$(function(){
+				$('.plugin-test-ol .li-1 input').lySwitch({
+					switchClass: 'ly-switch-default',
+					trueText: 'ON',
+					falseText: 'OFF',
+				});
+				$('.plugin-test-ol .li-2 input').lySwitch({
+					switchClass: 'ly-switch-default',
+					trueText: '有效',
+					falseText: '无效',
+				});
+				$('.plugin-test-ol .li-3 input').lySwitch({
+					switchClass: 'ly-switch-default',
+					trueText: '',
+					falseText: '',
+				});
+
+				$('.plugin-test-ol .li-4 input').lySwitch({
+					switchClass: 'ly-switch-icontext',
+					trueIconText: '开',
+					falseIconText: '关',
+				});
+
+				$('.plugin-test-ol .li-4').on('check.ly.switch uncheck.ly.switch', 'input', function(e){
+					console.log(e.type);
+					e.preventDefault();
+					$(this).lySwitch(e.type, true);
+				});
+
+			});
+
+
+
+
+		</script>
+
+
+    </body>
+</html>
+            

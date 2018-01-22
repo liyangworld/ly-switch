@@ -1,0 +1,148 @@
+
+/* --------------- ly-switch-default 样式 -------开始-------- */
+.ly-switch-default{
+    display: inline-block;
+    position: relative;
+    height: 22px;
+    line-height: 22px;
+    width: 52px; /*属性 比文本的宽度大 22+4 */ 
+    
+
+    border-radius: 20px;
+    border-width: 1px;
+    border-style: solid; 
+    border-color: rgb(255, 73, 73);
+    background-color: rgb(255, 73, 73);
+
+    font-size: 12px;
+    vertical-align: middle;
+    cursor: pointer;
+    
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+    
+}
+
+.ly-switch-default .ly-switch__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+}
+.ly-switch-default .ly-switch__icon{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 100%;
+    transition: transform .3s;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+}
+.ly-switch-default .ly-switch__text{
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 26px; /*属性 尽量是文字的纯宽度 */ 
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+.ly-switch-default.is-checked{
+    border-color: rgb(19, 206, 102);
+    background-color: rgb(19, 206, 102);
+}
+.ly-switch-default.is-checked .ly-switch__icon{
+    right: 2px;
+    left: auto;
+}
+.ly-switch-default.is-checked .ly-switch__text{
+    right: 20px;
+    left: auto;
+}
+.ly-switch-default.is-disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+/* --------------- ly-switch-default 样式 -------结束-------- */
+
+/* --------------- ly-switch-icontext 样式 -------开始-------- */
+
+.ly-switch-icontext{
+    display: inline-block;
+    position: relative;
+    height: 26px;
+    line-height: 26px;
+    width: 52px;
+    
+
+    border-radius: 26px;
+    border-width: 1px;
+    border-style: solid; 
+    border-color: #C9C9C9;
+    background-color: #C9C9C9;
+
+    font-size: 12px;
+    vertical-align: middle;
+    cursor: pointer;
+    
+    -webkit-transition: .1s linear;
+    transition: .1s linear;
+    
+}
+
+.ly-switch-icontext .ly-switch__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+}
+.ly-switch-icontext .ly-switch__icon{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 20px;
+    transition: transform .3s;
+    width: 24px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background-color: #fff;
+    color: #666;
+}
+.ly-switch-icontext .ly-switch__text{
+    display: none;
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 26px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+.ly-switch-icontext.is-checked{
+    border-color: #5EBBED;
+    background-color: #5EBBED;
+}
+.ly-switch-icontext.is-checked .ly-switch__icon{
+    right: 2px;
+    left: auto;
+}
+.ly-switch-icontext.is-checked .ly-switch__text{
+    right: 20px;
+    left: auto;
+}
+.ly-switch-icontext.is-disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --------------- ly-switch-icontext 样式 -------结束-------- */
